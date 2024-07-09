@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   
   get("/add_result", { :controller => "addition", :action => "add_these" })
 
-  get("/subtract", { :controller => "subtract", :action => "show_sub_form" })
-  get("", { :controller => "subtraction", :action => "subtract" })
+  get("/subtract", { :controller => "subtraction", :action => "sub_result" })
+  get("/sub_result", { :controller => "subtraction", :action => "subtract_these" })
 
   get("/multiply", { :controller => "multiplication", :action => "multiplication" })
   get("/wizard_multiply", { :controller => "multiplication", :action => "multiply" })
