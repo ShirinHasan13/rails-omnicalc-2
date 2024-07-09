@@ -1,9 +1,18 @@
+require "better_errors"
+require "binding_of_caller"
+
+# Need this configuration for better_errors
+use(BetterErrors::Middleware)
+BetterErrors.application_root = __dir__
+BetterErrors::Middleware.allow_ip!('0.0.0.0/0.0.0.0')
+
 Rails.application.routes.draw do
 
-  get("/", { :controller => "addition", :action => "show_addition_form" })
+  get("/", { :controller => "addition", :action => "add_result" })
 
-  get("/ad", { :controller => "addition", :action => "show_addition_form" })
-  get("/wizard_add", { :controller => "addition", :action => "add_these" })
+  get("/add", { :controller => "addition", :action => "add_result" })
+  
+  get("/add_result", { :controller => "addition", :action => "add_these" })
 
   get("/subtract", { :controller => "subtract", :action => "show_sub_form" })
   get("", { :controller => "subtraction", :action => "subtract" })
